@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AspectRatioForcer
     - BackGround
     - BlackHoleCollider
     - Destination
@@ -129,6 +130,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10828}
     - Class: 114
       Script: {instanceID: 10848}
+    - Class: 114
+      Script: {instanceID: 19252}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -940,7 +943,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 3053ef6d30f564a166176b8a728d262b
+      Hash: 39bfa2575915f9129d860e5ed96030b7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -1076,8 +1079,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AspectRatioForcer
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  playerPath: "D:/\uAC8C\uC784/_\uC778\uB514/\uC6B0\uC8FC\uB3CC\uD30C \uCEF4\uBC31\uD648/\uC6B0\uC8FC\uB3CC\uD30C
+  playerPath: "C:/Users/ghwls/Desktop/\uC6B0\uC8FC\uB3CC\uD30C \uCEF4\uBC31\uD648/\uC6B0\uC8FC\uB3CC\uD30C
     \uCEF4\uBC31\uD648.exe"
