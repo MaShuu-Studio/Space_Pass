@@ -100,6 +100,10 @@ public class SpaceShipController : MonoBehaviour
             if (isBlackHole == false)
                 transform.position += new Vector3(currentSpeed * Time.deltaTime * 2.0f, 0);
         }
+        else
+        {            
+            isStealth = false;
+        }
     }
 
     private IEnumerator FuelDecrease()
