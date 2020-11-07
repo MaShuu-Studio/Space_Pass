@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject UI;
     [SerializeField] private GameObject Result;
     [SerializeField] private GameObject Manual;
+    [SerializeField] private GameObject Pause;
     [SerializeField] private Text ResultText;
 
     [Header("Gages")]
@@ -47,6 +48,7 @@ public class GameController : MonoBehaviour
 
     private float playTime;
     private bool isClear = false;
+    public bool isPause { get; private set; }= false;
 
     private void Awake()
     {
@@ -59,6 +61,7 @@ public class GameController : MonoBehaviour
         Result.SetActive(false);
         UI.SetActive(false);
         Manual.SetActive(false);
+        Pause.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -82,20 +85,27 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isClear == false)
-            playTime += Time.deltaTime;
+        if (spaceShip.isGame == true)
+        {        
+            if (isClear == false)
+                playTime += Time.deltaTime;
 
-        if (Input.GetButtonDown("SpeedUp"))
-        {
-            spaceShip.SpeedAdjust(true);
-        }
-        else if (Input.GetButtonDown("SpeedDown"))
-        {
-            spaceShip.SpeedAdjust(false);
-        }
-        else if (Input.GetButtonDown("Stealth"))
-        {
-            spaceShip.StealthMode();
+            if (Input.GetButtonDown("SpeedUp"))
+            {
+                spaceShip.SpeedAdjust(true);
+            }
+            else if (Input.GetButtonDown("SpeedDown"))
+            {
+                spaceShip.SpeedAdjust(false);
+            }
+            else if (Input.GetButtonDown("Stealth"))
+            {
+                spaceShip.StealthMode();
+            }
+            else if (Input.GetButtonDown("Cancel") ) 
+            {
+                PauseGame();
+            }
         }
     }
 
@@ -115,6 +125,7 @@ public class GameController : MonoBehaviour
         isClear = false;
         Manual.SetActive(false);
         Result.SetActive(false);
+        Pause.SetActive(false);
         spaceShip.gameObject.SetActive(true);
         destination.SetActive(true);
         playTime = 0.0f;
@@ -125,6 +136,19 @@ public class GameController : MonoBehaviour
         FieldMaker.InitializeField(currentDiff);
         backGround.MeetBlackHole();
         spaceShip.isGame = true;
+        isPause = false;
+    }
+    public void PauseGame()
+    {
+        Pause.SetActive(true);
+        spaceShip.isGame = false;
+        isPause = true;
+    }
+    public void ContinueGame()
+    {
+        Pause.SetActive(false);
+        spaceShip.isGame = true;
+        isPause = false;
     }
     public void PlayEffect(string str)
     {
@@ -151,8 +175,8 @@ public class GameController : MonoBehaviour
     {
         spaceShip.isGame = false;
         Result.SetActive(true);
-        ResultText.text = "[RESULT]\n" + "<color=#00ff00>" +
-        ((currentDiff == Diffculty.HARD) ? "HARD" : "NORMAL") + " CLEAR</color>\n" + "TIME : " + playTime.ToString("N2") + "s";
+        ResultText.text = "[RESULT]\n" +
+        ((currentDiff == Diffculty.HARD) ? "<color=#ff0000>HARD</color>" : "<color=#ffff00>NORMAL</color>") + " <color=#00ff00>CLEAR</color>\n" + "TIME : " + playTime.ToString("N2") + "s";
 
         spaceShip.Clear();
         backGround.isClear = true;
@@ -168,6 +192,7 @@ public class GameController : MonoBehaviour
         FieldMaker.ClearStars();
         Title.SetActive(true);
         Result.SetActive(false);
+        Pause.SetActive(false);
         UI.SetActive(false);
     }
 

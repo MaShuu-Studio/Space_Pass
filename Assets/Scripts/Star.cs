@@ -22,7 +22,7 @@ public class Star : MonoBehaviour
 
     void Update()
     {
-        if (isOn)
+        if (isOn && gameController.isPause == false)
             GetType();
 
     }

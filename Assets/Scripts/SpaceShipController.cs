@@ -76,30 +76,30 @@ public class SpaceShipController : MonoBehaviour
                 gameController.GameOver();
                 isGame = false;
             }
-        }
-        if (damagedTime > 0)
-        {
-            damagedTime -= Time.deltaTime;
-        }
-
-        if (VirtualCamera != null || virtualCameraNoise != null)
-        {
-            if (ShakeElapsedTime > 0)
+            
+            if (damagedTime > 0)
             {
-                virtualCameraNoise.m_AmplitudeGain = ShakeAmplitude;
-                virtualCameraNoise.m_FrequencyGain = ShakeFrequency;
-                ShakeElapsedTime -= Time.deltaTime;
+                damagedTime -= Time.deltaTime;
             }
-            else
-            {
-                virtualCameraNoise.m_AmplitudeGain = 0f;
-                Cam.transform.rotation = Quaternion.identity;
-            }
-        }
-        // 우주선을 앞으로 이동시킴
-        if (isBlackHole == false)
-            transform.position += new Vector3(currentSpeed * Time.deltaTime * 2.0f, 0);
 
+            if (VirtualCamera != null || virtualCameraNoise != null)
+            {
+                if (ShakeElapsedTime > 0)
+                {
+                    virtualCameraNoise.m_AmplitudeGain = ShakeAmplitude;
+                    virtualCameraNoise.m_FrequencyGain = ShakeFrequency;
+                    ShakeElapsedTime -= Time.deltaTime;
+                }
+                else
+                {
+                    virtualCameraNoise.m_AmplitudeGain = 0f;
+                    Cam.transform.rotation = Quaternion.identity;
+                }
+            }
+            // 우주선을 앞으로 이동시킴
+            if (isBlackHole == false)
+                transform.position += new Vector3(currentSpeed * Time.deltaTime * 2.0f, 0);
+        }
     }
 
     private IEnumerator FuelDecrease()
