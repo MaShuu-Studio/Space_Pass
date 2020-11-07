@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
         Pause.SetActive(false);
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //체력 연료 등 게이지
         hpSlider.value = (float)spaceShip.HP / spaceShip.MaxHP;
@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
         timeText.text = playTime.ToString("N2") + "s";
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (spaceShip.isGame == true)
         {        
