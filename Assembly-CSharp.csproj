@@ -55,12 +55,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AspectRatioForcer.cs" />
      <Compile Include="Assets\Scripts\BackGround.cs" />
      <Compile Include="Assets\Scripts\BlackHoleCollider.cs" />
      <Compile Include="Assets\Scripts\Destination.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Nova.cs" />
+     <Compile Include="Assets\Scripts\ResolutionController.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\SpaceShipController.cs" />
      <Compile Include="Assets\Scripts\Star.cs" />
