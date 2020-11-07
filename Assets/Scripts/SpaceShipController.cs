@@ -188,6 +188,7 @@ public class SpaceShipController : MonoBehaviour
 
     public void Damage(int dmg)
     {
+        int realdmg = (int)(dmg * Speed);
         gameController.PlayEffect("Damage");
         HP -= dmg;
         if (HP <= 0)
@@ -239,7 +240,7 @@ public class SpaceShipController : MonoBehaviour
         if (isBlackHole) return;
         if (Fuel > 10f && isStealth == false)
         {
-            Fuel -= 10f;
+            Fuel -= 15f;
             StartCoroutine(Stealth());
         }
     }
