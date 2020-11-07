@@ -237,10 +237,11 @@ public class SpaceShipController : MonoBehaviour
 
     public void StealthMode()
     {
+        float usage_fuel = 10f + 10f * ((Speed - 1) / 2); // 기본속도 10, 두배속 15, 세배속 20
         if (isBlackHole) return;
-        if (Fuel > 10f && isStealth == false)
+        if (Fuel > usage_fuel && isStealth == false)
         {
-            Fuel -= 15f;
+            Fuel -= usage_fuel;
             StartCoroutine(Stealth());
         }
     }
